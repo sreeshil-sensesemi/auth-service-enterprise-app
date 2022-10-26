@@ -5,8 +5,10 @@ const db = require('./database/db-connection')
 const app = express();
 const PORT = 5000;
 
+//database connection
 db.connect(e=> {if (e) throw e
 else console.log("db connection success"); })
+
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 

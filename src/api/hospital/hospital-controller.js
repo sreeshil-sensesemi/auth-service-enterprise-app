@@ -13,7 +13,7 @@ const mobileNumberLogin = async (req, res)=> {
 
         if (chkhospital[0]) {
             //twillio otp  sent 
-            const sendOtpRes = await sendOtp(PhoneNumber);
+            //const sendOtpRes = await sendOtp(PhoneNumber);
 
             return res.json({status: 1, message: "OTP sent successfully"}) 
 
