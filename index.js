@@ -5,7 +5,7 @@ const hospitalRouter = require('./src/api/hospital/hospital-router')
 const indexrouter = require('./src/router/indexrouter')
 
 const app = express();
-const PORT = 5000;
+const PORT = 3000;
 
 //database connection
 db.connect(e=> {
