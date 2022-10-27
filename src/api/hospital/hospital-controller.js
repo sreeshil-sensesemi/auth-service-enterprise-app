@@ -5,6 +5,13 @@ const { sendOtp, verifyOtp } = require('../../utils/otpConfig')
 
 //login with mobile number
 // @route POST => /api/hospitals/login
+const getLandingPage = async (req, res)=> {
+   res.send("landing page")
+
+}
+
+//login with mobile number
+// @route POST => /api/hospitals/login
 const mobileNumberLogin = async (req, res)=> {
    
     const {phonenumber: PhoneNumber} = req.body;
@@ -69,4 +76,4 @@ const test = async (req, res) => {
 
 
 
-module.exports = {register, mobileNumberLogin, checkEnteredOtp, test};
+module.exports = {register, mobileNumberLogin, checkEnteredOtp, test, getLandingPage};

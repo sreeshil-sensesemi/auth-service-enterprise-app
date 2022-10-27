@@ -5,7 +5,7 @@ const db = sql.createConnection({
     database: process.env.DB_NAME,
     user: process.env.DB_USER_NAME,
     password: process.env.DB_USER_PASSWORD,
-    port: process.env.DB_PORT
+    //port: process.env.DB_PORT
     
 })
 
