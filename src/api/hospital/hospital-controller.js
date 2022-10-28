@@ -48,16 +48,19 @@ const mobileNumberLogin = async (req, res) => {
 // hospital register
 // @route POST => /api/hospitals/register
 const register = async (req, res) => {
-
+ 
     try {
         const { hospitalname: HospitalName, phonenumber: PhoneNumber, email: Email, city: City } = req.body;
-
-        db.query('SELECT PhoneNumber FROM  hospitals WHERE PhoneNumber = ?', [PhoneNumber], async (stop, chkhospital) => {
-            if (stop) throw stop
+            //console.log(req.body);
+        db.query('SELECT PhoneNumber FROM  hospitals WHERE PhoneNumber = ?', [PhoneNumber], async (err, chkhospital) => {
+            if (err) throw err
             if (chkhospital[0]) return res.json({ status: 0, message: "hospital already exists" })
 
-
-            const hospital = {
+            db.query('SELECT Email FROM  hospitals WHERE Email = ?', [Email], async (err, chkhospital) => {
+                if (err) throw err
+                if (chkhospital[0]) return res.json({ status: 0, message: "hospital already exists" })
+            })
+            const hospital = { 
                 hospitalname: HospitalName,
                 phonenumber: PhoneNumber,
                 email: Email,
