@@ -5,12 +5,11 @@ const {register, checkEnteredOtp, mobileNumberLogin ,test, verifyEnteredOtp, res
 
 router.post('/register', register)
 router.post('/login', mobileNumberLogin)
-//router.post('/mobilenumber', mobileNumberLogin)
 
 //verify entered otp for register
 router.post('/verifyotp', verifyEnteredOtp)
 
-//check entered otp for login
+//verify entered otp for login
 router.post('/checkotp', checkEnteredOtp)
 
 //resend otp

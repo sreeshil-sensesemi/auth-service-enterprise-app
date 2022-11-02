@@ -6,10 +6,7 @@ const { sendOtp, verifyOtp } = require('../../utils/otpConfig')
 //login with mobile number
 // @route POST => /api/hospitals/login
 const getLandingPage = async (req, res) => {
-    console.log(req.session, " req.session.userData in landing route");
-
     res.send("landing page")
-
 }
 
 //login with mobile number
@@ -51,7 +48,7 @@ const register = async (req, res) => {
  
     try {
         const { hospitalname: HospitalName, phonenumber: PhoneNumber, email: Email, city: City } = req.body;
-            //console.log(req.body);
+
         db.query('SELECT PhoneNumber FROM  hospitals WHERE PhoneNumber = ?', [PhoneNumber], async (err, chkhospital) => {
             if (err) throw err
             if (chkhospital[0]) return res.json({ status: 0, message: "hospital already exists" })
@@ -171,7 +168,6 @@ const resendOTP = async (req, res) => {
 
 //testing server
 const test = async (req, res) => {
-    console.log(req.session, " req.session.userData in test");
     console.log("test ok");
     res.send("success");
 }
